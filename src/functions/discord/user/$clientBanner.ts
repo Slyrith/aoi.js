@@ -2,8 +2,8 @@ import { Scope } from "../../../index.js";
 import { FunctionData, funcData } from "../../../typings/interfaces.js";
 import { escapeResult } from "../../../util/transpilerHelpers.js";
 
-export const $clientBanner: FunctionData = {
-    name: "$clientBanner",
+export const $authorBanner: FunctionData = {
+    name: "$authorBanner",
     type: "getter",
     brackets: true,
     optional: true,
@@ -27,7 +27,7 @@ export const $clientBanner: FunctionData = {
     version: "7.0.0",
     default: ["void", "void", "void"],
     returns: "string",
-    description: "Returns the Banner of client",
+    description: "Returns the Banner of author",
     code: (data: funcData, scope: Scope[]) => {
         // Adding default values
         const [size = 4096, dynamic = "true", format = "png"] = data.splits;
@@ -35,11 +35,11 @@ export const $clientBanner: FunctionData = {
         // Getting the current scope
         const currentScope = scope[scope.length - 1];
 
-        // Getting the client banner
-        const clientBanner = `__$DISCORD_DATA$__.client.readyData.user.bannerUrl({ size: ${size}, dynamic: ${dynamic}, format: "${format}" })`;
+        // Getting the author banner
+        const authorBanner = `__$DISCORD_DATA$__.client.readyData.user.bannerUrl({ size: ${size}, dynamic: ${dynamic}, format: "${format}" })`;
 
         // Returning the result
-        const res = escapeResult(clientBanner);
+        const res = escapeResult(authorBanner);
 
         // Updating the scope
         currentScope.update(res, data);
