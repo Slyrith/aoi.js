@@ -36,7 +36,7 @@ export const $authorBanner: FunctionData = {
         const currentScope = scope[scope.length - 1];
 
         // Getting the author banner
-        const authorBanner = `__$DISCORD_DATA$__.client.readyData.user.bannerUrl({ size: ${size}, dynamic: ${dynamic}, format: "${format}" })`;
+        const authorBanner = `__$DISCORD_DATA$__.author.bannerUrl({ size: ${size}, dynamic: ${dynamic}, format: "${format}" })`;
 
         // Returning the result
         const res = escapeResult(authorBanner);
